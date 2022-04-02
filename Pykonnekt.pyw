@@ -18,18 +18,20 @@ path = os.path.expanduser('~\Documents\Pykonnekt\\')
     
 def main():
     try:
-        try:
-            urllib.request.urlretrieve('https://raw.githubusercontent.com/crinkies/Pykonnekt/master/icon.ico', f'{path}icon.ico')
-        except:
-            pass
         host_file = open(f"{path}Network.txt", "r")
         network = host_file.readline().lower().strip()
         host_file.close()
+        m_body = "Pykonnekt is monitoring your network state."
+        notif(m_body)
         new_thread(key_listen)
         new_thread(check_connection(network))
     except:
         try:
             os.mkdir(path)
+        except:
+            pass
+        try:
+            urllib.request.urlretrieve('https://raw.githubusercontent.com/crinkies/Pykonnekt/master/icon.ico', f'{path}icon.ico')
         except:
             pass
         host_file = open(f"{path}Network.txt", "a+")
@@ -93,4 +95,3 @@ def quit_threading():
     raise SystemExit
 
 main()
-
