@@ -29,7 +29,7 @@ def main():
         network_profiles = subprocess.check_output("Netsh wlan show profiles", shell=True).decode('ascii')
         host_file.write(f"Your network name goes here. One line.\nHere's your network information:\n{network_profiles}")
         host_file.close()
-        urllib.request.urlretrieve('https://raw.githubusercontent.com/crinkies/junk_link_files/main/icon.ico', f'{path}icon.ico')
+        urllib.request.urlretrieve('https://github.com/crinkies/Pykonnekt/blob/master/icon.ico', f'{path}icon.ico')
         time.sleep(1)
         m_body = f"Network.txt created at {path}.\nPlease enter your network name into the file and reload the app."
         notif(m_body)
