@@ -18,18 +18,24 @@ path = os.path.expanduser('~\Documents\Pykonnekt\\')
     
 def main():
     try:
+        try:
+            urllib.request.urlretrieve('https://raw.githubusercontent.com/crinkies/Pykonnekt/master/icon.ico', f'{path}icon.ico')
+        except:
+            pass
         host_file = open(f"{path}Network.txt", "r")
         network = host_file.readline().lower().strip()
         host_file.close()
         new_thread(key_listen)
         new_thread(check_connection(network))
     except:
-        os.mkdir(path)
+        try:
+            os.mkdir(path)
+        except:
+            pass
         host_file = open(f"{path}Network.txt", "a+")
         network_profiles = subprocess.check_output("Netsh wlan show profiles", shell=True).decode('ascii')
         host_file.write(f"Your network name goes here. One line.\nHere's your network information:\n{network_profiles}")
         host_file.close()
-        urllib.request.urlretrieve('https://github.com/crinkies/Pykonnekt/blob/master/icon.ico', f'{path}icon.ico')
         time.sleep(1)
         m_body = f"Network.txt created at {path}.\nPlease enter your network name into the file and reload the app."
         notif(m_body)
@@ -87,3 +93,4 @@ def quit_threading():
     raise SystemExit
 
 main()
+
