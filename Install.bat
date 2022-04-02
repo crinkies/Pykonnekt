@@ -5,8 +5,8 @@ mode 80,10
 title Pykonnekt installer
 echo Starting...
 timeout 3 >nul
-if not exist "%userprofile%\Documents\Pykonnekt\"
-mkdir %userprofile%\Documents\Pykonnekt\ 
+if not exist "%userprofile%\Documents\Pykonnekt\" (
+mkdir %userprofile%\Documents\Pykonnekt\
 ) else (
 cls
 echo Folder already exists. Exiting...
@@ -29,6 +29,7 @@ del Temp.vbs
 echo Cleaning up...
 echo Shortcut created in startup folder.
 echo Validating files...
+timeout 3 >nul
 if exist %userprofile%\Documents\Pykonnekt\Pykonnekt.pyw (
         echo Pykonnekt.pyw --- OK
     ) else (
@@ -50,6 +51,7 @@ if exist %userprofile%\Documents\Pykonnekt\Run.vbs (
 	timeout 3 >nul
 	exit
     )
+timeout 3 >nul
 echo Successfully configured to run on startup.
 cls
 echo Launch now? (y/n)
@@ -63,11 +65,12 @@ start Pykonnekt.lnk
 cls
 timeout 3 >nul
 cd %userprofile%\Documents\Pykonnekt\
-Network.txt
+Run.vbs
 echo Done.
 timeout 3 >nul
 exit
 :no
+echo Launch Pykonnekt from your /Documents/Pykonnekt/ folder
 echo Exiting...
 timeout 3 >nul
 exit
