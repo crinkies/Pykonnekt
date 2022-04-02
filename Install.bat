@@ -5,7 +5,7 @@ mode 80,10
 title Pykonnekt installer
 echo Starting...
 timeout 3 >nul
-if not exist "%userprofile%\Documents\Pykonnekt\" (
+if not exist "%userprofile%\Documents\Pykonnekt\"
 mkdir %userprofile%\Documents\Pykonnekt\ 
 ) else (
 cls
@@ -17,7 +17,7 @@ echo \Documents\Pykonnekt folder successfully created.
 copy "Pykonnekt.pyw" "%userprofile%\Documents\Pykonnekt\"
 copy "icon.ico" "%userprofile%\Documents\Pykonnekt\"
 echo Python %userprofile%\Documents\Pykonnekt\Pykonnekt.pyw> %userprofile%\Documents\Pykonnekt\Start.bat
-echo WScript.CreateObject("WScript.Shell").Run "%userprofile%\Documents\Pykonekt\Start.bat", 0, True > %userprofile%\Documents\Pykonnekt\Run.vbs
+echo WScript.CreateObject("WScript.Shell").Run "%userprofile%\Documents\Pykonnekt\Start.bat", 0, True > %userprofile%\Documents\Pykonnekt\Run.vbs
 echo Successfully created files in Pykonnekt folder.
 echo Set shortcut = WScript.CreateObject("WScript.Shell") > Temp.vbs
 echo sLinkFile = "%userprofile%\Start Menu\Programs\Startup\Pykonnekt.lnk" >> Temp.vbs
