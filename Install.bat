@@ -60,11 +60,10 @@ If /I "%Input%"=="y" goto yes
 goto no
 :yes
 cd %userprofile%\Start Menu\Programs\Startup\
-start .
-start Pykonnekt.lnk
 cls
 timeout 3 >nul
 cd %userprofile%\Documents\Pykonnekt\
+start .
 Run.vbs
 echo Done.
 timeout 3 >nul
